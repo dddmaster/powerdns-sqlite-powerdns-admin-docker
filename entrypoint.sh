@@ -29,5 +29,9 @@ pdns_server \
 	--webserver-allow-from="127.0.0.1" \
 	--api-key=$API_KEY &
 
+
+
 cd /app
-gunicorn -t 120 --workers 4 --bind 0.0.0.0:80 "powerdnsadmin:create_app()"
+gunicorn -t 120 --workers 4 --bind 0.0.0.0:80 "powerdnsadmin:create_app()" &
+
+dnsdist
